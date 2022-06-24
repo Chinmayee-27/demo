@@ -1,5 +1,6 @@
 pipeline{
     agent any
+    emailext body: 'New commits found. Pipeline has been triggered', subject: 'JENKINS- DEMO PROJECT', to: 'chinmayee.trivedi@unthinkable.co'
     stages{
         stage("DEVELOPMENT"){
             steps{
@@ -36,9 +37,11 @@ pipeline{
         }
         success{
             echo "========pipeline executed successfully ========"
+            emailext body: 'Pipeline created successfully with Build No . ${BUILD_ID}', subject: 'JENKINS- DEMO PROJECT', to: 'chinmayee.trivedi@unthinkable.co'
         }
         failure{
             echo "========pipeline execution failed========"
+            emailext body: 'Pipeline creation failed with Build No . ${BUILD_ID}. Please check1', subject: 'JENKINS- DEMO PROJECT', to: 'chinmayee.trivedi@unthinkable.co'
         }
     }
 }
