@@ -1,10 +1,5 @@
 pipeline{
     agent any
-    git branch: 'main', url: 'https://github.com/Chinmayee-27/demo.git'
-    triggers {
-        pollSCM 'H/2 * * * *'
-        }
-
     stages{
         stage("DEVELOPMENT"){
             steps{
